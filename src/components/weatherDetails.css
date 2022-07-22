@@ -6,21 +6,20 @@
 .weatherHeader {
   width: 100%;
   height: 4rem;
-  background: grey
 }
 
 .weatherBody {
   display: flex;
   flex-direction: row;
   width: auto;
+  align-items: center;
 }
 
 .weatherBodyDetails {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50vw;
-  background-color: rgb(132, 152, 172);
+  width: 80vw;
 }
 
 .weatherBodyExtra {
@@ -28,14 +27,34 @@
   flex-wrap: wrap;
   width: 50vw;
   justify-content: center;
-  background-color: DodgerBlue;
+  background-color: rgba(251, 251, 251, 0.3);
+  border-radius: 15px;
 }
 
 .weatherBodyExtra > div {
-  background-color: #f1f1f1;
-  width: 100px;
-  margin: 8px;
+  width: 33%;
+  margin: 30px;
+  padding: 10px;
   text-align: center;
-  line-height: 75px;
-  font-size: 15px;
+  font-size: 20px;
+}
+
+.extraCard > p:nth-child(2){
+  font-size: 14px;
+}
+
+@media screen and (max-width: 920px) {
+  .weatherBody {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .weatherBodyExtra {
+    width: 90vw;
+  }
+
+  .weatherBodyExtra > div {
+    margin: 10px;
+    font-size: 15px;
+  }
 }

@@ -4,12 +4,17 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Roboto";
+  font-weight: 300; 
+}
+
 .container {
   background: url('./assets/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top ;
   width: 100%;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 

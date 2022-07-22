@@ -5,20 +5,8 @@ import { options, fetchData } from "./utils/fetchData";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState([
-    {
-      name: "",
-      id: "",
-      currentTemp: "",
-      lowTemp: "",
-      highTemp: "",
-      wind: "",
-      rain: "",
-      sunrise: "",
-      sunset: "",
-      timezone: "",
-    },
-  ]);
+  const [data, setData] = useState([{}]);
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -26,6 +14,7 @@ function App() {
         "https://community-open-weather-map.p.rapidapi.com/weather?q=London&units=imperial",
         options
       );
+      console.log(weatherData);
       setData({
         name: weatherData.name,
         id: weatherData.id,
@@ -37,11 +26,13 @@ function App() {
         sunrise: weatherData.sys.sunrise,
         sunset: weatherData.sys.sunset,
         timezone: weatherData.timezone,
+        description: weatherData.weather[0].description,
+        icon: weatherData.weather[0].icon,
       });
     };
     getData();
   }, []);
-
+  console.log(data);
   return (
     <div className="container">
       <SearchBox />
