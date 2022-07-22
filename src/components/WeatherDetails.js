@@ -29,8 +29,8 @@ const WeatherDetails = ({ data }) => {
             src={`http://openweathermap.org/img/wn/${data.icon}@4x.png`}
           />
           <div>
-            <p>{data.currentTemp}</p>
-            <p>{data.description}</p>
+            <p>{data.currentTemp}°F</p>
+            <p>{data.description.toUpperCase()}</p>
           </div>
         </div>
         <div className="weatherBodyExtra">
