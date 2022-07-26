@@ -12,13 +12,17 @@ const SearchBox = ({ setData }) => {
         `https://community-open-weather-map.p.rapidapi.com/weather?q=${searchInputValue}&units=imperial`,
         options
       );
-
+      const weatherDataForecast = await fetchData(
+        `https://community-open-weather-map.p.rapidapi.com/forecast/daily?q=${searchInputValue}&units=imperial`,
+        options
+      );
       setData({
         name: weatherData.name,
         id: weatherData.id,
         currentTemp: Math.floor(weatherData.main.feels_like),
         lowTemp: Math.floor(weatherData.main.temp_min),
         highTemp: Math.ceil(weatherData.main.temp_max),
+        forecast: [...weatherDataForecast.list],
         humidity: weatherData.main.humidity,
         wind: weatherData.wind.speed,
         sunrise: weatherData.sys.sunrise,

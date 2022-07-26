@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState([{}]);
-  console.log(data);
+
   return (
     <div className="container">
       <SearchBox setData={setData} />

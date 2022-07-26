@@ -43,6 +43,29 @@
   font-size: 14px;
 }
 
+.weatherForecast {
+  display: flex;
+  justify-content: space-around;
+  margin: 4em;
+}
+
+.dailyForecast {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+  width: 40%;
+  background: grey;
+  /* height: 200px; */
+  align-items: center;
+  text-align: center;
+}
+
+.forecastCard{
+  width: 16.667%;
+  border: 1px solid black;
+}
+
 @media screen and (max-width: 920px) {
   .weatherBody {
     display: flex;
@@ -56,6 +79,21 @@
   .weatherBodyExtra > div {
     margin: 10px;
     font-size: 15px;
+  }
+
+  .weatherForecast {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dailyForecast {
+    width: 90vw;
+  }
+
+  .forecastCard{
+    width: 44px;
+    border: 1px solid black;
   }
 }
 

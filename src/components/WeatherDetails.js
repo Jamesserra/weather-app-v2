@@ -15,7 +15,7 @@ const WeatherDetails = ({ data }) => {
     }).format(nd);
     return time;
   };
-
+  data.forecast.map((x) => console.log(x.weather[0].icon));
   return (
     <div className="weatherBoxContainer">
       <div className="weatherHeader">
@@ -56,11 +56,36 @@ const WeatherDetails = ({ data }) => {
           </div>
           <div className="extraCard">
             <p>{newDate(data.sunset)}</p>
-            <p>Sunrise</p>
+            <p>Sunset</p>
           </div>
         </div>
       </div>
-      <div>Hourly Forecast</div>
+      <div className="weatherForecast">
+        <div className="dailyForecast">
+          {data.forecast.map((day) => (
+            <div className="forecastCard">
+              <img
+                alt="weather-icon"
+                src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
+              />
+              <p>{Math.round(day.temp.min)}</p>
+              <p>{Math.round(day.temp.max)}</p>
+            </div>
+          ))}
+        </div>
+        <div className="dailyForecast">
+          {data.forecast.map((day) => (
+            <div className="forecastCard">
+              <img
+                alt="weather-icon"
+                src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
+              />
+              <p>{Math.round(day.temp.min)}</p>
+              <p>{Math.round(day.temp.max)}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
